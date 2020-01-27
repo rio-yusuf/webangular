@@ -1,0 +1,26 @@
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 mb-5">
+    <h2 class="text-center">User</h2>
+    <hr>
+    </div>
+    <div class="col-md-4 mb-5" *ngFor="let data of getDataFromApi">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{data.image}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">{{data.firstName + data.lastName}}</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus
+            neque sequi doloribus.</p>
+        </div>
+        <div class="card-footer">
+          <a href="/user/{{data.id}}" routerLinkActive="active" class=" btn btn-primary">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
