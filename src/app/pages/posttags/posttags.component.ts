@@ -19,7 +19,7 @@ export class PosttagsComponent implements OnInit {
   }
 
   getDataApi() {
-    this.api.getTagPost(this.id).subscribe((res: any) => {
+    this.api.getData("tag/" + this.id + "/post").subscribe((res: any) => {
       console.log("res get data?", res);
       if (res.data) {
         this.getDataFromApi = res.data;

@@ -19,7 +19,7 @@ export class UserpostComponent implements OnInit {
   }
 
   getDataApi() {
-    this.api.getUserPost(this.id).subscribe((res: any) => {
+    this.api.getData("user/" + this.id + "/post").subscribe((res: any) => {
       console.log("res get data?", res);
       if (res.data) {
         this.getDataFromApi = res.data;

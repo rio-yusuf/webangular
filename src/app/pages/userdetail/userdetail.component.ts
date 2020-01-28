@@ -19,7 +19,7 @@ export class UserdetailComponent implements OnInit {
   }
 
   getDataApi() {
-    this.api.getOneUser(this.id).subscribe((res: any) => {
+    this.api.getData("user/" + this.id).subscribe((res: any) => {
       console.log("res get data?", res);
       if (res) {
         this.getOneDataFromApi = res;

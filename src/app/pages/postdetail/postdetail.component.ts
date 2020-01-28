@@ -20,7 +20,7 @@ export class PostdetailComponent implements OnInit {
   }
 
   getDataApi() {
-    this.api.getOnePost(this.id).subscribe((res: any) => {
+    this.api.getData("user/" + this.id).subscribe((res: any) => {
       console.log("res get data?", res);
       if (res) {
         this.getOneDataFromApi = res;
