@@ -15,10 +15,11 @@ import { UserdetailComponent } from './pages/userdetail/userdetail.component';
 import { PostdetailComponent } from './pages/postdetail/postdetail.component';
 import { UserpostComponent } from './pages/userpost/userpost.component';
 import { PosttagsComponent } from './pages/posttags/posttags.component';
+import { PostcommentComponent } from './pages/postcomment/postcomment.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, UserComponent, UserdetailComponent, PostdetailComponent, UserpostComponent, PosttagsComponent],
+  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, UserComponent, UserdetailComponent, PostdetailComponent, UserpostComponent, PosttagsComponent, PostcommentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

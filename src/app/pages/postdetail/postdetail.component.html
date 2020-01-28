@@ -9,14 +9,17 @@
       <div class="card h-10 mb-5 shadow">
         <div class="card-header">
           <img src="{{getOneDataFromApi.owner.image}}" alt="" width="40px"
-            class="rounded-circle mr-3"> {{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}
+            class="rounded-circle mr-3"> 
+            <a href="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
         </div>
         <img class="card-img-top" src="{{getOneDataFromApi.image}}" alt="">
         <div class="card-body">
-          <span class="badge badge-primary mr-2" style="display: inline-block;"
-            *ngFor="let tags of getOneDataFromApi.tags">
-            {{tags}}
-          </span>
+          <a href="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
+            <span class="badge badge-primary mr-2" style="display: inline-block;"
+              >
+              {{tags}}
+            </span>
+          </a>
           <p class="card-text">{{getOneDataFromApi.message}}</p>
         </div>
         <div class="card-footer">

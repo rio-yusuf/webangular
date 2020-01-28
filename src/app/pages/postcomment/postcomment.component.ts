@@ -3,12 +3,12 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService } from "src/app/shared/services/api.service";
 
 @Component({
-  selector: "app-postdetail",
-  templateUrl: "./postdetail.component.html",
-  styleUrls: ["./postdetail.component.scss"]
+  selector: "app-postcomment",
+  templateUrl: "./postcomment.component.html",
+  styleUrls: ["./postcomment.component.scss"]
 })
-export class PostdetailComponent implements OnInit {
-
+export class PostcommentComponent implements OnInit {
+  getDataFromApi: any = null;
   getOneDataFromApi: any = null;
   id: any;
 
@@ -20,6 +20,13 @@ export class PostdetailComponent implements OnInit {
   }
 
   getDataApi() {
+    this.api.getData("post/" + this.id + "/comment").subscribe((res: any) => {
+      console.log("res get data?", res);
+      if (res.data) {
+        this.getDataFromApi = res.data;
+      }
+    });
+
     this.api.getData("post/" + this.id).subscribe((res: any) => {
       console.log("res get data?", res);
       if (res) {

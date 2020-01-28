@@ -3,21 +3,24 @@
   <div class="row">
     <div class="col-md-8 mb-5" *ngFor="let data of getDataFromApi">
       <div class="col-md-12 mb-5">
-        <h2 class="text-primary">{{data.owner.firstName + ' ' + data.owner.lastName}} Post
+        <h2 class="text-primary">{{data.owner.firstName + ' ' + data.owner.lastName + '`s'}} Post
           with id is {{data.id}}</h2>
         <hr>
       </div>
       <div class="card h-10 mb-5 shadow">
         <div class="card-header">
           <img src="{{data.owner.image}}" alt="" width="40px" class="rounded-circle mr-3">
-          {{data.owner.firstName + ' ' + data.owner.lastName}}
+          <a href="/user/{{data.owner.id}}">{{data.owner.firstName + ' ' + data.owner.lastName}}</a>
         </div>
-        <img class="card-img-top" src="{{data.image}}" alt="">
+        <a href="/post/{{data.id}}">
+          <img class="card-img-top" src="{{data.image}}" alt="">
+        </a>
         <div class="card-body">
-          <span class="badge badge-primary mr-2" style="display: inline-block;"
-            *ngFor="let tags of data.tags">
-            {{tags}}
-          </span>
+          <a href="/tag/{{tags}}/post" *ngFor="let tags of data.tags">
+            <span class="badge badge-primary mr-2" style="display: inline-block;">
+              {{tags}}
+            </span>
+          </a>
           <p class="card-text">{{data.message}}</p>
         </div>
         <div class="card-footer">

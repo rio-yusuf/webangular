@@ -6,12 +6,13 @@ import { Observable, throwError } from "rxjs";
 import { catchError, timeout, retry, map } from "rxjs/operators";
 import * as _ from "lodash";
 import { environment } from "src/environments/environment";
+import { ActivatedRoute } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   getData(
     path: string,

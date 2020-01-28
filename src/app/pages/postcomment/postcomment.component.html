@@ -1,0 +1,67 @@
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 mb-5" *ngIf="getOneDataFromApi">
+      <div class="col-md-12 mb-5">
+        <h2 class="text-primary">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}} Post
+          with id is {{getOneDataFromApi.id}}</h2>
+        <hr>
+      </div>
+      <div class="card h-10 mb-5 shadow">
+        <div class="card-header">
+          <img src="{{getOneDataFromApi.owner.image}}" alt="" width="40px" class="rounded-circle mr-3">
+          <a
+            href="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
+        </div>
+        <img class="card-img-top" src="{{getOneDataFromApi.image}}" alt="">
+        <div class="card-body">
+          <a href="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
+            <span class="badge badge-primary mr-2" style="display: inline-block;">
+              {{tags}}
+            </span>
+          </a>
+          <p class="card-text">{{getOneDataFromApi.message}}</p>
+        </div>
+        <div class="card-footer">
+          a few seconds ago
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="mb-5" id="suggestion">
+        <div class="col-md-12 mb-5">
+          <h2 class="text-primary">Comments</h2>
+          <hr>
+        </div>
+        <div class="card h-10">
+          <div class="overflow-auto card-body" style="height: 300px;">
+              <div class="card h-10 mb-5 shadow" *ngFor="let data of getDataFromApi">
+                <div class="card-header">
+                  <img src="{{data.owner.image}}" alt="Ella Kristensen Dummyapi person" width="40px"
+                    class="rounded-circle mr-3"> <a href="/user/{{data.id}}">
+                    {{data.owner.firstName + ' ' + data.owner.lastName}} </a>
+                </div>
+                <a href="/post/{{data.id}}"><img class="card-img-top" src="{{data.image}}" alt=""></a>
+                <div class="card-body">
+                  <div>
+                    <a *ngFor="let tags of data.tags" href="/tag/{{tags}}/post">
+                      <span class="badge badge-primary mr-2" style="display: inline-block;">
+                        {{tags}}
+                      </span>
+                    </a>
+                  </div>
+                  <p class="card-text">{{data.message}}</p>
+                  <p class="card-text"><a href="/post/{{data.id}}/comment">See Comment</a></p>
+                </div>
+                <div class="card-footer">
+                  a few seconds ago
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>

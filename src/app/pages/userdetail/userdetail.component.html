@@ -1,17 +1,20 @@
 <!-- Page Content -->
 <div class="container">
 
-  <div class="row">
+  <div class="row" *ngIf="getOneDataFromApi">
     <div class="col-md-12 mb-5">
-      <h2 class="text-center">User</h2>
+      <h2 class="text-center">
+        {{getOneDataFromApi.nameTitle + ' ' + getOneDataFromApi.firstName  + ' ' + getOneDataFromApi.lastName}}</h2>
       <hr>
     </div>
-    <div class="col-md-4 mb-5 offset-4" *ngIf="getOneDataFromApi">
+    <div class="col-md-4 mb-5 offset-4">
       <div class="card h-100">
         <img class="card-img-top" src="{{getOneDataFromApi.image}}" alt="">
         <div class="card-body">
             <h2>Biodata</h2>
-                <p>Name : {{getOneDataFromApi.nameTitle + getOneDataFromApi.firstName + getOneDataFromApi.lastName}}</p>
+                <p>Name :
+                  {{getOneDataFromApi.nameTitle + ' ' + getOneDataFromApi.firstName  + ' ' + getOneDataFromApi.lastName}}
+                </p>
                 <p>Gender : {{getOneDataFromApi.gender}}</p>
                 <p>Email : {{getOneDataFromApi.email}}</p>
                 <p>Date of birth : {{getOneDataFromApi.dob}}</p>
@@ -20,11 +23,11 @@
                 <p>Username : {{getOneDataFromApi.username}}</p>
                 <p>Password : {{getOneDataFromApi.password}}</p>
             <h2>Location</h2>
-            <p>Gender : {{getOneDataFromApi.location.street}}</p>
-            <p>Gender : {{getOneDataFromApi.location.city}}</p>
-            <p>Gender : {{getOneDataFromApi.location.state}}</p>
-            <p>Gender : {{getOneDataFromApi.location.postcode}}</p>
-            <p>Gender : {{getOneDataFromApi.location.timezone}}</p>
+            <p>Street : {{getOneDataFromApi.location.street}}</p>
+            <p>City : {{getOneDataFromApi.location.city}}</p>
+            <p>State : {{getOneDataFromApi.location.state}}</p>
+            <p>Postal Code : {{getOneDataFromApi.location.postcode}}</p>
+            <p>Timezone : {{getOneDataFromApi.location.timezone}}</p>
         </div>
       </div>
     </div>
