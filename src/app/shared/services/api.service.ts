@@ -34,8 +34,8 @@ export class ApiService {
     );
   }
 
-  getOneData(
-    id:number,
+  getOneUser(
+    id: number,
     pagination: Page = null,
     ordering: Sort = null,
     filter: object = null
@@ -44,6 +44,69 @@ export class ApiService {
     const options = { params };
 
     return this.http.get(`${environment.api_url}user/${id}`, options).pipe(
+      catchError(err => {
+        return throwError(err);
+      }),
+      map((res: Response) => {
+        return res;
+      }),
+      timeout(3000),
+      retry(3)
+    );
+  }
+
+  getOnePost(
+    id: number,
+    pagination: Page = null,
+    ordering: Sort = null,
+    filter: object = null
+  ): Observable<any> {
+    const params = this.prepareHttpParams(pagination, ordering, filter);
+    const options = { params };
+
+    return this.http.get(`${environment.api_url}post/${id}`, options).pipe(
+      catchError(err => {
+        return throwError(err);
+      }),
+      map((res: Response) => {
+        return res;
+      }),
+      timeout(3000),
+      retry(3)
+    );
+  }
+
+  getUserPost(
+    id: number,
+    pagination: Page = null,
+    ordering: Sort = null,
+    filter: object = null
+  ): Observable<any> {
+    const params = this.prepareHttpParams(pagination, ordering, filter);
+    const options = { params };
+
+    return this.http.get(`${environment.api_url}user/${id}/post`, options).pipe(
+      catchError(err => {
+        return throwError(err);
+      }),
+      map((res: Response) => {
+        return res;
+      }),
+      timeout(3000),
+      retry(3)
+    );
+  }
+
+  getTagPost(
+    id: number,
+    pagination: Page = null,
+    ordering: Sort = null,
+    filter: object = null
+  ): Observable<any> {
+    const params = this.prepareHttpParams(pagination, ordering, filter);
+    const options = { params };
+
+    return this.http.get(`${environment.api_url}tag/${id}/post`, options).pipe(
       catchError(err => {
         return throwError(err);
       }),

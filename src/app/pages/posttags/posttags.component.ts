@@ -3,12 +3,12 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService } from "src/app/shared/services/api.service";
 
 @Component({
-  selector: "app-userdetail",
-  templateUrl: "./userdetail.component.html",
-  styleUrls: ["./userdetail.component.scss"]
+  selector: "app-posttags",
+  templateUrl: "./posttags.component.html",
+  styleUrls: ["./posttags.component.scss"]
 })
-export class UserdetailComponent implements OnInit {
-  getOneDataFromApi: any;
+export class PosttagsComponent implements OnInit {
+  getDataFromApi: any = null;
   id: any;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
@@ -19,10 +19,10 @@ export class UserdetailComponent implements OnInit {
   }
 
   getDataApi() {
-    this.api.getOneUser(this.id).subscribe((res: any) => {
+    this.api.getTagPost(this.id).subscribe((res: any) => {
       console.log("res get data?", res);
-      if (res) {
-        this.getOneDataFromApi = res;
+      if (res.data) {
+        this.getDataFromApi = res.data;
       }
     });
   }

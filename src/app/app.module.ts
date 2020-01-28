@@ -12,10 +12,13 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserdetailComponent } from './pages/userdetail/userdetail.component';
+import { PostdetailComponent } from './pages/postdetail/postdetail.component';
+import { UserpostComponent } from './pages/userpost/userpost.component';
+import { PosttagsComponent } from './pages/posttags/posttags.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, UserComponent, UserdetailComponent],
+  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, UserComponent, UserdetailComponent, PostdetailComponent, UserpostComponent, PosttagsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

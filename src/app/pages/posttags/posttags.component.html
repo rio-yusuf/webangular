@@ -1,0 +1,30 @@
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mb-5">
+      <div class="col-md-12 mb-5">
+        <h2 class="text-primary">By TAG</h2>
+        <hr>
+      </div>
+      <div class="card h-10 mb-5 shadow" *ngFor="let data of getDataFromApi">
+        <div class="card-header">
+          <img src="{{data.owner.image}}" alt="" width="40px" class="rounded-circle mr-3">
+          {{data.owner.firstName + ' ' + data.owner.lastName}}
+        </div>
+        <img class="card-img-top" src="{{data.image}}" alt="">
+        <div class="card-body">
+          <span class="badge badge-primary mr-2" style="display: inline-block;" *ngFor="let tags of data.tags">
+            {{tags}}
+          </span>
+          <p class="card-text">{{data.message}}</p>
+        </div>
+        <div class="card-footer">
+          a few seconds ago
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->

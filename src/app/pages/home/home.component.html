@@ -3,47 +3,65 @@
 <!-- Page Content -->
 <div class="container">
 
-  <div class="row" id="services">
-    <div class="col-md-12 mb-5">
-      <h2 class="text-center">What We Are Expert At ?</h2>
-      <hr>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+  <div class="row">
+    <div class="col-md-8 mb-5">
+      <div class="col-md-12 mb-5">
+        <h2 class="text-primary">Lastest Feed</h2>
+        <hr>
+      </div>
+      <div class="card h-10 mb-5 shadow" *ngFor="let data of getDataFromApi">
+        <div class="card-header">
+          <img src="{{data.owner.image}}" alt="Ella Kristensen Dummyapi person" width="40px"
+            class="rounded-circle mr-3"> <a href="#"> {{data.owner.firstName + ' ' + data.owner.lastName}} </a>
+        </div>
+        <a href="/post/{{data.id}}"><img class="card-img-top" src="{{data.image}}" alt=""></a>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
+          <span class="badge badge-primary mr-2" style="display: inline-block;" *ngFor="let tags of data.tags">
+           {{tags}}
+          </span>
+          <p class="card-text">{{data.message}}</p>
+        </div>
+        <div class="card-footer">
+          a few seconds ago
         </div>
       </div>
     </div>
-    <div class="col-md-3 mb-5">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
+    <div class="col-md-4 mb-5">
+      <div class="mb-5" id="suggestion">
+        <div class="col-md-12 mb-5">
+          <h2 class="text-primary">Suggestions For You</h2>
+          <hr>
+        </div>
+        <div class="card h-10">
+          <div class="overflow-auto card-body" style="height: 200px;">
+            <div class="mb-1" *ngFor="let data of getDataFromApi">
+              <div class="card-header">
+                <img src="{{data.owner.image}}" alt="Ella Kristensen Dummyapi person" width="40px"
+                  class="rounded-circle mr-3"> {{data.owner.firstName + ' ' + data.owner.lastName}} <a href="#"
+                  class="text-right">Follow</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
+      <div id="tags">
+        <div class="col-md-12 mb-5">
+          <h2 class="text-primary">Popular Tags</h2>
+          <hr>
         </div>
-      </div>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
+        <div class="col-md-12 mb-5">
+          <div *ngFor="let data of getTagsFromApi">
+            <a href="/tag/{{data}}/post"><span class="badge badge-primary mr-2 mb-2 p-2" style="float: left;">
+              {{data}}
+            </span></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- /.row -->
 
-  <div class="row" id="about">
+  <div class="row">
     <div class="col-md-8 mb-5">
       <h2>About Us</h2>
       <hr>
