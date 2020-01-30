@@ -12,11 +12,11 @@
         <div class="card-header">
           <img src="{{getOneDataFromApi.owner.image}}" alt="" width="40px" class="rounded-circle mr-3">
           <a
-            href="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
+            routerLink="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
         </div>
         <img class="card-img-top" src="{{getOneDataFromApi.image}}" alt="">
         <div class="card-body">
-          <a href="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
+          <a routerLink="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
             <span class="badge badge-primary mr-2" style="display: inline-block;">
               {{tags}}
             </span>
@@ -39,20 +39,20 @@
               <div class="card h-10 mb-5 shadow" *ngFor="let data of getDataFromApi">
                 <div class="card-header">
                   <img src="{{data.owner.image}}" alt="Ella Kristensen Dummyapi person" width="40px"
-                    class="rounded-circle mr-3"> <a href="/user/{{data.id}}">
+                    class="rounded-circle mr-3"> <a routerLink="/user/{{data.id}}">
                     {{data.owner.firstName + ' ' + data.owner.lastName}} </a>
                 </div>
-                <a href="/post/{{data.id}}"><img class="card-img-top" src="{{data.image}}" alt=""></a>
+                <a routerLink="/post/{{data.id}}"><img class="card-img-top" src="{{data.image}}" alt=""></a>
                 <div class="card-body">
                   <div>
-                    <a *ngFor="let tags of data.tags" href="/tag/{{tags}}/post">
+                    <a *ngFor="let tags of data.tags" routerLink="/tag/{{tags}}/post">
                       <span class="badge badge-primary mr-2" style="display: inline-block;">
                         {{tags}}
                       </span>
                     </a>
                   </div>
                   <p class="card-text">{{data.message}}</p>
-                  <p class="card-text"><a href="/post/{{data.id}}/comment">See Comment</a></p>
+                  <p class="card-text"><a routerLink="/post/{{data.id}}/comment">See Comment</a></p>
                 </div>
                 <div class="card-footer">
                   a few seconds ago

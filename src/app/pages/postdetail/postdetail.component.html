@@ -10,17 +10,18 @@
         <div class="card-header">
           <img src="{{getOneDataFromApi.owner.image}}" alt="" width="40px"
             class="rounded-circle mr-3"> 
-            <a href="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
+            <a routerLink="/user/{{getOneDataFromApi.owner.id}}">{{getOneDataFromApi.owner.firstName + ' ' + getOneDataFromApi.owner.lastName}}</a>
         </div>
         <img class="card-img-top" src="{{getOneDataFromApi.image}}" alt="">
         <div class="card-body">
-          <a href="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
+          <a routerLink="/tag/{{tags}}/post" *ngFor="let tags of getOneDataFromApi.tags">
             <span class="badge badge-primary mr-2" style="display: inline-block;"
               >
               {{tags}}
             </span>
           </a>
           <p class="card-text">{{getOneDataFromApi.message}}</p>
+          <p class="card-text"><a routerLink="/post/{{getOneDataFromApi.id}}/comment">See Comment</a></p>
         </div>
         <div class="card-footer">
           a few seconds ago
@@ -38,7 +39,7 @@
             <div class="mb-1" *ngFor="let data of getDataFromApi">
               <div class="card-header">
                 <img src="{{data.owner.image}}" alt="Ella Kristensen Dummyapi person" width="40px"
-                  class="rounded-circle mr-3"> {{data.owner.firstName + ' ' + data.owner.lastName}} <a href="#"
+                  class="rounded-circle mr-3"> {{data.owner.firstName + ' ' + data.owner.lastName}} <a routerLink="#"
                   class="text-right">Follow</a>
               </div>
             </div>

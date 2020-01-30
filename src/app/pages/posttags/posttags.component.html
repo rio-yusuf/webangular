@@ -9,14 +9,19 @@
       <div class="card h-10 mb-5 shadow" *ngFor="let data of getDataFromApi">
         <div class="card-header">
           <img src="{{data.owner.image}}" alt="" width="40px" class="rounded-circle mr-3">
-          {{data.owner.firstName + ' ' + data.owner.lastName}}
+          <a routerLink="/user/{{data.owner.id}}">{{data.owner.firstName + ' ' + data.owner.lastName}}</a>
         </div>
-        <img class="card-img-top" src="{{data.image}}" alt="">
+        <a routerLink="/post/{{data.id}}">
+          <img class="card-img-top" src="{{data.image}}" alt="">
+        </a>
         <div class="card-body">
-          <span class="badge badge-primary mr-2" style="display: inline-block;" *ngFor="let tags of data.tags">
-            {{tags}}
-          </span>
+          <a routerLink="/tag/{{tags}}/post" *ngFor="let tags of data.tags">
+            <span class="badge badge-primary mr-2" style="display: inline-block;">
+              {{tags}}
+            </span>
+          </a>
           <p class="card-text">{{data.message}}</p>
+          <p class="card-text"><a routerLink="/post/{{data.id}}/comment">See Comment</a></p>
         </div>
         <div class="card-footer">
           a few seconds ago
